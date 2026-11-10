@@ -7,7 +7,7 @@ cropped images of construction vehicles into 6 classes:
 `bulldozer`, `concrete_mixer`, `crane`, `excavator`, `loader`, `truck`.
 
 Training and testing run in two separate Docker containers. The test container has
-no PyTorch at all: it runs the exported ONNX model with onnxruntime.
+no PyTorch at all: it runs the exported ONNX model with onnxruntime
 
 ## Dataset
 
