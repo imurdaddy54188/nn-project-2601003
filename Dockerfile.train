@@ -1,0 +1,19 @@
+# Training environment: full PyTorch (CPU only).
+FROM python:3.11-slim
+
+# No .pyc files, unbuffered logs, fixed hash seed for reproducibility.
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONHASHSEED=42
+
+WORKDIR /app
+
+# Install libraries first so Docker can cache this layer when only code changes.
+COPY requirements-train.txt .
+RUN pip install --no-cache-dir -r requirements-train.txt
+
+COPY src/ ./src/
+
+# data/, models/ and outputs/ are NOT copied; they are mounted at run time.
+ENTRYPOINT ["python", "src/train.py"]
+CMD ["--name", "final", "--augment", "--dropout", "0.5", "--final"]

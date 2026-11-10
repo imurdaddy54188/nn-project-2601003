@@ -1,0 +1,4 @@
+numpy==2.2.6
+pillow==11.2.1
+matplotlib==3.10.3
+onnxruntime==1.22.0

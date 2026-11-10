@@ -1,0 +1,15 @@
+# Inference environment: no PyTorch, only onnxruntime -> much smaller image.
+FROM python:3.11-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+COPY requirements-test.txt .
+RUN pip install --no-cache-dir -r requirements-test.txt
+
+# Only the files needed for inference.
+COPY src/preprocess.py src/test.py src/predict.py ./src/
+
+CMD ["python", "src/test.py"]
