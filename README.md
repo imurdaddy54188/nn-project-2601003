@@ -101,6 +101,6 @@ docker run --rm -v "${PWD}/data:/app/data" -v "${PWD}/models:/app/models" nn-tes
 
 ## Use of generative AI
 
-Claude (Anthropic) was used to help write and debug the scripts and Docker files.
+Claude (Anthropic) was used to help write and debug the scripts and Docker file.
 All code was run, checked and modified by the author.
 https://drive.google.com/file/d/1G_3agke0eKaidZo5U4p9HcCzkq4OPlNr/view?usp=drive_link
